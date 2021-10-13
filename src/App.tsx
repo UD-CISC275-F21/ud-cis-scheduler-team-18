@@ -7,10 +7,11 @@ function App(): JSX.Element {
         <div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
-                UD CIS Scheduler
-                Luis Garcia Osorio
+                UD CIS Scheduler:
+                Justin Anthony,
+                Luis Garcia Osorio,
                 Andrew McCracken
-                Justin Anthony
+
                 <p>
                     Edit <code>src/App.tsx</code> and save to reload.
                 </p>
