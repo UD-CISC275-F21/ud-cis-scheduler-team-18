@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import COURSES from './classes.json';
 //change 2
 function App(): JSX.Element {
     return (
