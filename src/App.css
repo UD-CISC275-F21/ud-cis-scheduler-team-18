@@ -1,38 +1,50 @@
-.App {
+
+
+body{
   text-align: center;
+  background-color: rgb(72, 71, 175);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+input{
+  background-color: #b5b0b9;
+  margin-top: 10px;
+}
+textarea{
+background-color: #b5b0b9;
+margin-top: 10px;
+}
+button{
+color: rgb(179, 175, 175);
+background-color: rgb(49, 47, 47);
+margin-top: 1%;
+margin-bottom: 1%;
+width: 15%;
+}
+td {
+  border: 1px solid #333;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+thead,
+tfoot {
+  background-color: #333;
+  color: #fff;
+}
+table{
+margin-left: auto;
+margin-right: auto;
+border: 1px solid #333;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+#semesterBox{
+margin-left: auto;
+margin-right: auto;
+width: auto;
+height: auto;
+border: 10px solid #333;
+padding: 50px;
 
-.App-link {
-  color: #61dafb;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+th{
+  margin-left: auto;
+  margin-right: auto;
 }
