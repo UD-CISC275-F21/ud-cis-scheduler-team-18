@@ -13,7 +13,7 @@ textarea{
 background-color: #b5b0b9;
 margin-top: 10px;
 }
-button{
+button{  
 color: rgb(179, 175, 175);
 background-color: rgb(49, 47, 47);
 margin-top: 1%;
@@ -28,6 +28,9 @@ thead,
 tfoot {
   background-color: #333;
   color: #fff;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 table{
 margin-left: auto;
@@ -38,7 +41,7 @@ border: 1px solid #333;
 #semesterBox{
 margin-left: auto;
 margin-right: auto;
-width: auto;
+width: 1000px;
 height: auto;
 border: 10px solid #333;
 padding: 50px;
@@ -47,4 +50,11 @@ padding: 50px;
 th{
   margin-left: auto;
   margin-right: auto;
+}
+#courseAdd {
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }

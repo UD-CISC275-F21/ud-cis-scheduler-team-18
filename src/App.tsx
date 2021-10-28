@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 //change Andrew's Branch
-function App(): JSX.Element {
+function App (): JSX.Element {
 	return (
 		<body>
 			<h1>UD CIS Scheduler Team 18: Andrew McCracken, Luis Garcia, Justin Anthony</h1>
@@ -41,12 +41,14 @@ function App(): JSX.Element {
                         <td>Description</td>
                         <td>Example</td>
                     </tr>
+                    
                 </tbody>
 
 			</table>
 			<button id="semesterAdd">Add Semester</button>
 		</body>
 	);
+  
 }
 
 export default App;
