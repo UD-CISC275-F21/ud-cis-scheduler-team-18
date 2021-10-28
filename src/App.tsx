@@ -28,9 +28,22 @@ function App(): JSX.Element {
 			</table>
 
 			<h3>Semester Planner:</h3>
-			<div id="semesterBox">
+			<table id="semesterBox">
+                <thead>
+                    <tr>
+                        <td>Semester 1</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Course Title</td>
+                        <td>Credit Hours</td>
+                        <td>Description</td>
+                        <td>Example</td>
+                    </tr>
+                </tbody>
 
-			</div>
+			</table>
 			<button id="semesterAdd">Add Semester</button>
 		</body>
 	);
