@@ -1,8 +1,22 @@
-import React from "react";
+import React, {Component} from "react";
 import logo from "./logo.svg";
 import "./App.css";
 //change Andrew's Branch
 function App (): JSX.Element {
+
+	function addSem() {
+		const body = document.body;
+		const tbl = document.createElement("table");
+		tbl.style.width = "1000px";
+		const tr = tbl.insertRow();
+		for (let i = 0;i<4;i++) {
+			const td = tr.insertCell();
+			td.appendChild(document.createTextNode("Cell I${i}"));
+
+		}
+		body.appendChild(tbl);
+	}
+
 	return (
 		<body>
 			<h1>UD CIS Scheduler Team 18: Andrew McCracken, Luis Garcia, Justin Anthony</h1>
@@ -45,7 +59,9 @@ function App (): JSX.Element {
                 </tbody>
 
 			</table>
-			<button id="semesterAdd">Add Semester</button>
+			<button id="addSem()" >Add Semester</button>
+			
+		
 		</body>
 	);
   
