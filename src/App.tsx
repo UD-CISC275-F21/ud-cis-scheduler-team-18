@@ -53,13 +53,15 @@ function App (): JSX.Element {
                         <td>Course Title</td>
                         <td>Credit Hours</td>
                         <td>Description</td>
-                        <td>Example</td>
+                        <td>PreReqs,CoReqs, Qualities</td>
                     </tr>
                     
                 </tbody>
 
 			</table>
-			<button id="addSem()" >Add Semester</button>
+			<button id="addSem" >Add Semester</button>
+			
+		
 			
 		
 		</body>
