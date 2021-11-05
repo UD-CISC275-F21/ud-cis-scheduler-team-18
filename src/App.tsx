@@ -20,6 +20,7 @@ function App(): JSX.Element {
         <div className="App">
             <header className="App-header">
                 <CourseOverview courses={CiscCourses} />
+
                 <img src={logo} className="App-logo" alt="logo" />
                 UD CIS Scheduler
                 Andrew McCracken, Luis Garcia, Justin Anthony

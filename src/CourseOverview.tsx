@@ -14,15 +14,15 @@ export const CourseOverview: React.FC<courseProps> = ({ courses }: courseProps) 
           <td>
             <h4>Course</h4></td>
           {/* <td>
-          <h4>
-            CoreReq
-          </h4>
-        </td>
-        <td>
-          <h4>
-            PreReq
-          </h4>
-        </td> */}
+            <h4>
+              CoreReq
+            </h4>
+          </td>
+          <td>
+            <h4>
+              PreReq
+            </h4>
+          </td> */}
         </tr>
         {/* {courses.map(item=> {
           return <CourseItem Department = {item.Department}
