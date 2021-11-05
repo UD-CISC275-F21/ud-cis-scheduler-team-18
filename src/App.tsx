@@ -8,11 +8,11 @@ import { SSL_OP_CISCO_ANYCONNECT } from "constants";
 const CiscCourses = [
     {
         Department: "CISC",
-        ID: 108
+        ID: 108,
     },
     {
         Department: "CISC",
-        ID: 181
+        ID: 181,
     }
 ];
 function App(): JSX.Element {
