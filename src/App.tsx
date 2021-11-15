@@ -1,25 +1,19 @@
-import React, {Component} from "react";
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
 //change Andrew's Branch
 function App (): JSX.Element {
-
+	let numSemesters = 0;
 	function addSem() {
-		const body = document.body;
-		const tbl = document.createElement("table");
-		tbl.style.width = "1000px";
-		const tr = tbl.insertRow();
-		for (let i = 0;i<4;i++) {
-			const td = tr.insertCell();
-			td.appendChild(document.createTextNode("Cell I${i}"));
-
-		}
-		body.appendChild(tbl);
+		numSemesters++;
+		const sem = "Semester " + numSemesters.toString();
+		const semBox = document.getElementById("semesterBox")!;
+		semBox.innerHTML += "<table class = \"sem\"> <h5>" + sem +"</h5></table>";
+		//alert(semBox.innerHTML);
 	}
 
 	return (
 		<body>
-			<h1>UD CIS Scheduler Team 18: Andrew McCracken, Luis Garcia, Justin Anthony</h1>
+			<h1>UD CIS Scheduler Team 18: Andrew McCracken, Luis Garcia</h1>
 			<br></br>
 			<         div>TODO: Dynamically fill class List. Fill in Semester Planner.</div>
 			<h3 id="major">Major:</h3>
@@ -42,24 +36,10 @@ function App (): JSX.Element {
 			</table>
 
 			<h3>Semester Planner:</h3>
-			<table id="semesterBox">
-                <thead>
-                    <tr>
-                        <td>Semester 1</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Course Title</td>
-                        <td>Credit Hours</td>
-                        <td>Description</td>
-                        <td>PreReqs,CoReqs, Qualities</td>
-                    </tr>
-                    
-                </tbody>
-
+			
+			<table className = "semesterBox">
 			</table>
-			<button id="addSem" >Add Semester</button>
+			<button id="addSem" onClick= {addSem} >Add Semester</button>
 			
 		
 			
