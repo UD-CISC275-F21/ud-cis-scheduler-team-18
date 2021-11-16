@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Container, Row} from "react-bootstrap";
 import { Card } from "./interfaces/card";
 import { SemesterViewer } from "./components/SemesterViewer";
+import { ClassListViewer } from "./components/ClassListViewer";
 
 
 
@@ -17,13 +18,12 @@ function App (): JSX.Element {
 	classListSize--;
 	
 	const [activeCard, setActiveCard] = useState<Card>(classList[0]);
-	let currentClassID = activeCard.id;
-	currentClassID++;
-	currentClassID--;
+	const [activeID, setActiveID] = useState<number>(0);
 	return (
 		<Container className="App">
+			<ClassListViewer></ClassListViewer>
 			<Row>
-				<ControlPanel setCard={setActiveCard}></ControlPanel>
+				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID}></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
 			</Row>
 			<SemesterViewer></SemesterViewer>
