@@ -1,50 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-//change Andrew's Branch
+import classList from "./assets/classList.json";
+import { ClassViewer } from "./components/CardViewer";
+import { ControlPanel } from "./components/ControlPanel";
+import "bootstrap/dist/css/bootstrap.min.css";
+import {Container, Row} from "react-bootstrap";
+import { Card } from "./interfaces/card";
+import { SemesterViewer } from "./components/SemesterViewer";
+
+
+
+
 function App (): JSX.Element {
-	let numSemesters = 0;
-	function addSem() {
-		numSemesters++;
-		const sem = "Semester " + numSemesters.toString();
-		const semBox = document.getElementById("semesterBox")!;
-		semBox.innerHTML += "<table class = \"sem\"> <h5>" + sem +"</h5></table>";
-		//alert(semBox.innerHTML);
-	}
-
+	let classListSize = classList.length;
+	classListSize++;
+	classListSize--;
+	
+	const [activeCard, setActiveCard] = useState<Card>(classList[0]);
+	let currentClassID = activeCard.id;
+	currentClassID++;
+	currentClassID--;
 	return (
-		<body>
-			<h1>UD CIS Scheduler Team 18: Andrew McCracken, Luis Garcia</h1>
-			<br></br>
-			<         div>TODO: Dynamically fill class List. Fill in Semester Planner.</div>
-			<h3 id="major">Major:</h3>
-			<table id="courseTable">
-				<thead>
-					<tr>
-						<th>Classes Remaining:</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Class A</td>
-						<td>Description</td>
-					</tr>
-					<tr>
-						<td>Class B</td>
-						<td>Description</td>
-					</tr>
-				</tbody>
-			</table>
-
-			<h3>Semester Planner:</h3>
-			
-			<table className = "semesterBox">
-			</table>
-			<button id="addSem" onClick= {addSem} >Add Semester</button>
-			
-		
-			
-		
-		</body>
+		<Container className="App">
+			<Row>
+				<ControlPanel setCard={setActiveCard}></ControlPanel>
+				<ClassViewer card ={activeCard}></ClassViewer>
+			</Row>
+			<SemesterViewer></SemesterViewer>
+		</Container>
 	);
   
 }

@@ -1,0 +1,14 @@
+[
+	{
+		"id": 0,
+		"name": "cisc275",
+		"prereq": "none",
+		"prof": "Dr. Bart"
+	},
+	{
+		"id": 1,
+		"name": "cisc320",
+		"prereq": "none",
+		"prof": "Rui Zhang"
+	}
+]
