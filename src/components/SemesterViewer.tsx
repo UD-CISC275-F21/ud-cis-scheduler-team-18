@@ -4,7 +4,7 @@ import SEMESTERS from "../assets/semesterList.json";
 import {Semester} from "../interfaces/semester";
 
 let retval = "";
-for(const x in SEMESTERS){
+const x = 0;//value to change for different semesters
 	SEMESTERS as Semester[];
 	retval += SEMESTERS[x].name;
 	retval += ":\n";
@@ -25,7 +25,7 @@ for(const x in SEMESTERS){
 		retval += SEMESTERS[x].classD;
 		retval += "\n";
 	}
-}
+
 export function SemesterViewer(): JSX.Element {
 	return <Row>
 		<h2>Semesters:</h2>
