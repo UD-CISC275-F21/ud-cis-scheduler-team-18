@@ -13,17 +13,14 @@ import { SemesterSelect } from "./components/SemesterSelect";
 
 
 function App (): JSX.Element {
-	let classListSize = classList.length;
-	classListSize++;
-	classListSize--;
-	
+	const [classListSize] = useState<number>(classList.length);
 	const [activeCard, setActiveCard] = useState<Card>(classList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
 	return (
 		<Container className="App">
 			<ClassListViewer></ClassListViewer>
 			<Row>
-				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID}></ControlPanel>
+				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize}></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
 				<SemesterSelect></SemesterSelect>
 			</Row>
