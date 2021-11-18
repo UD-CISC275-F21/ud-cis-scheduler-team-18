@@ -8,7 +8,7 @@ import {Container, Row} from "react-bootstrap";
 import { Card } from "./interfaces/card";
 import { SemesterViewer } from "./components/SemesterViewer";
 import { ClassListViewer } from "./components/ClassListViewer";
-
+import { SemesterSelect } from "./components/SemesterSelect";
 
 
 
@@ -25,6 +25,7 @@ function App (): JSX.Element {
 			<Row>
 				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID}></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
+				<SemesterSelect></SemesterSelect>
 			</Row>
 			<SemesterViewer></SemesterViewer>
 		</Container>

@@ -2,9 +2,8 @@
 import React from "react";
 import {Col} from "react-bootstrap";
 import { Card } from "../interfaces/card";
-export function ClassViewer({card}: {card: Card}): JSX.Element {
+export function SemesterSelect(): JSX.Element {
 	return <Col>
-		<h2>Class Select</h2>
-		<div>Class: {card.name}</div>
+		<h2>Semeseter Select</h2>
 	</Col>;
 }
