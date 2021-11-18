@@ -1,32 +1,30 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import SEMESTERS from "../assets/semesterList.json";
 import {Semester} from "../interfaces/semester";
 
-let retval = "";
-const x = 0;//value to change for different semesters
-	SEMESTERS as Semester[];
-	retval += SEMESTERS[x].name;
+
+export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
+	let retval = "";
+	retval += sem.name;
 	retval += ":\n";
-	//SEMESTERS[x].classA = "cisc275";
-	if(SEMESTERS[x].classA != "none"){
-		retval += SEMESTERS[x].classA;
+	//sem.classA = "cisc275";
+	if(sem.classA != "none"){
+		retval += sem.classA;
 		retval += "\n";
 	}
-	if(SEMESTERS[x].classB != "none"){
-		retval += SEMESTERS[x].classB;
+	if(sem.classB != "none"){
+		retval += sem.classB;
 		retval += "\n";
 	}
-	if(SEMESTERS[x].classC != "none"){
-		retval += SEMESTERS[x].classC;
+	if(sem.classC != "none"){
+		retval += sem.classC;
 		retval += "\n";
 	}
-	if(SEMESTERS[x].classD != "none"){
-		retval += SEMESTERS[x].classD;
+	if(sem.classD != "none"){
+		retval += sem.classD;
 		retval += "\n";
 	}
 
-export function SemesterViewer(): JSX.Element {
 	return <Row>
 		<h2>Semesters:</h2>
 		<div>{retval}</div>

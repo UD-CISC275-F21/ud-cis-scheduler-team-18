@@ -5,7 +5,8 @@ import CARDS from "../assets/classList.json";
 import { Semester } from "../interfaces/semester";
 import semList from "../assets/semesterList.json";
 
-export function ControlPanel({setCard, ID, setID, listSize, setSem, semID, setSemID, semListSize}:{setCard: (c: Card)=>void, ID: number, setID: (r: number)=>void, listSize: number, setSem: (z: Semester)=>void, semID: number, setSemID: (q: number)=>void, semListSize: number}): JSX.Element {
+export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, semID, setSemID, semListSize, sem}:{setCard: (c: Card)=>void, cardVal: Card, ID: number, setID: (r: number)=>void, listSize: number, setSem: (z: Semester)=>void, semID: number, setSemID: (q: number)=>void, semListSize: number, sem: Semester}): JSX.Element {
+	let semNameChange = "";
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
@@ -16,7 +17,11 @@ export function ControlPanel({setCard, ID, setID, listSize, setSem, semID, setSe
 				}
 			}
 		}>Previous Class</Button>
-		<Button>Add Class</Button>
+		<Button onClick= {
+			() => {
+				sem.classA = cardVal.name;
+			}
+		}>Add Class</Button>
 		<Button onClick={ 
 			() => {
 				if(ID != listSize-1){
@@ -34,7 +39,20 @@ export function ControlPanel({setCard, ID, setID, listSize, setSem, semID, setSe
 				}
 			}
 		}>Previous Semester</Button>
-		<Button>Clear Semester</Button>
+		<Button onClick ={
+			() => {
+				sem.classA = "none";
+				sem.classB = "none";
+				sem.classC = "none";
+				sem.classD = "none";
+				sem.classE = "none";
+				sem.classF = "none";
+				sem.classG = "none";
+				sem.classH = "none";
+				sem.classI = "none";
+				sem.classJ = "none";
+			}
+		}>Clear Semester</Button>
 		<Button onClick ={
 			() => {
 				if(semID != semListSize -1){
@@ -43,5 +61,14 @@ export function ControlPanel({setCard, ID, setID, listSize, setSem, semID, setSe
 				}
 			}
 		}>Next Semester</Button>
+		<br></br>
+		<input onChange={event => semNameChange = event.target.value}></input>
+		<br></br>
+		<Button onClick ={
+			() => {
+				sem.name = semNameChange;
+				setSem(semList[semID]);
+			}
+		}>Change Semester Name</Button>
 	</Col>;
 }

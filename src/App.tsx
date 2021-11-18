@@ -34,11 +34,11 @@ function App (): JSX.Element {
 		<Container className="App">
 			<ClassListViewer></ClassListViewer>
 			<Row>
-				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} ></ControlPanel>
+				<ControlPanel setCard={setActiveCard} cardVal = {activeCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} sem = {activeSemester} ></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
 				<SemesterSelect sem = {activeSemester}></SemesterSelect>
 			</Row>
-			<SemesterViewer></SemesterViewer>
+			<SemesterViewer sem = {activeSemester}></SemesterViewer>
 		</Container>
 	);
   
