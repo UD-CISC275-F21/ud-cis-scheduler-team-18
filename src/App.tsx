@@ -25,6 +25,7 @@ function App (): JSX.Element {
 	//semester use states
 	const [activeSemester, setActiveSemester] = useState<Semester>(semesterList[0]);
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
+	const [semListSize] = useState<number>(semesterList.length);
 	//class use states
 	const [classListSize] = useState<number>(classList.length);
 	const [activeCard, setActiveCard] = useState<Card>(classList[0]);
@@ -33,9 +34,9 @@ function App (): JSX.Element {
 		<Container className="App">
 			<ClassListViewer></ClassListViewer>
 			<Row>
-				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize}></ControlPanel>
+				<ControlPanel setCard={setActiveCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} ></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
-				<SemesterSelect></SemesterSelect>
+				<SemesterSelect sem = {activeSemester}></SemesterSelect>
 			</Row>
 			<SemesterViewer></SemesterViewer>
 		</Container>
