@@ -32,6 +32,7 @@
         }],
         "brace-style": ["error", "1tbs"],
         "indent": "off",
+
         "linebreak-style": [
             "error",
             "windows"
