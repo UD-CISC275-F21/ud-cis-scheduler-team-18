@@ -1,7 +1,7 @@
 import React from "react";
 import {Row} from "react-bootstrap";
 import CARDS from "../assets/classList.json";
-import {Card} from "../interfaces/card";
+import {Card} from "../Interfaces/card";
 
 
 let retval = "";
