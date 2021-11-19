@@ -54,6 +54,31 @@ export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, sem
 				}
 			}
 		}>Next Class</Button>
+		<Button onClick ={
+			() => {
+				if(sem.classA == cardVal.name){
+					sem.classA = "none";
+				}else if(sem.classB == cardVal.name){
+					sem.classB = "none";
+				}else if(sem.classC == cardVal.name){
+					sem.classC = "none";
+				}else if(sem.classD == cardVal.name){
+					sem.classD = "none";
+				}else if(sem.classE == cardVal.name){
+					sem.classE = "none";
+				}else if(sem.classF == cardVal.name){
+					sem.classF = "none";
+				}else if(sem.classG == cardVal.name){
+					sem.classG = "none";
+				}else if(sem.classH == cardVal.name){
+					sem.classH = "none";
+				}else if(sem.classI == cardVal.name){
+					sem.classI = "none";
+				}else if(sem.classJ == cardVal.name){
+					sem.classJ = "none";
+				}
+			}
+		}>Remove Class</Button>
 		<br></br>
 		<Button onClick ={
 			() => {
@@ -94,5 +119,6 @@ export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, sem
 				setSem(semList[semID]);
 			}
 		}>Change Semester Name</Button>
+		
 	</Col>;
 }

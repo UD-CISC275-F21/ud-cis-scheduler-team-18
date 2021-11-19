@@ -12,7 +12,6 @@ import { ClassViewer } from "./components/CardViewer";
 import { ControlPanel } from "./components/ControlPanel";
 import { SemesterViewer } from "./components/SemesterViewer";
 import { ClassListViewer } from "./components/ClassListViewer";
-import { SemesterSelect } from "./components/SemesterSelect";
 //interfaces
 import { Card } from "./interfaces/card";
 import { Semester } from "./interfaces/semester";
@@ -23,6 +22,7 @@ import { Semester } from "./interfaces/semester";
 
 
 function App (): JSX.Element {
+	document.title = "UD CISC Scheduler Team 18";
 	//semester use states
 	const [activeSemester, setActiveSemester] = useState<Semester>(semesterList[0]);
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
@@ -40,7 +40,6 @@ function App (): JSX.Element {
 			<Row>
 				<ControlPanel setCard={setActiveCard} cardVal = {activeCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} sem = {activeSemester} ></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
-				<SemesterSelect sem = {activeSemester}></SemesterSelect>
 			</Row>
 			<SemesterViewer sem = {activeSemester}></SemesterViewer>
 		</Container>
