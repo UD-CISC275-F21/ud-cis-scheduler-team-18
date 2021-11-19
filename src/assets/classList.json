@@ -1,0 +1,26 @@
+[
+	{
+		"id": 0,
+		"name": "cisc275",
+		"prereq": "none",
+		"prof": "Dr. Bart"
+	},
+	{
+		"id": 1,
+		"name": "cisc320",
+		"prereq": "none",
+		"prof": "Rui Zhang"
+	},
+	{
+		"id": 2,
+		"name": "cisc372",
+		"prereq": "none",
+		"prof": "Dr. Sunitha"
+	},
+	{
+		"id": 3,
+		"name": "cpeg470",
+		"prereq": "none",
+		"prof": "Dr. Andrew Novocin"
+	}
+]

@@ -27,24 +27,15 @@
         "@typescript-eslint"
     ],
     "rules": {
-        "no-extra-parens": [
-            "warn",
-            "all",
-            {
-                "nestedBinaryExpressions": false
-            }
-        ],
-        "brace-style": [
-            "error",
-            "1tbs"
-        ],
-        "indent": [
-            "error",
-            4
-        ],
+        "no-extra-parens": ["warn", "all", {
+            "nestedBinaryExpressions": false
+        }],
+        "brace-style": ["error", "1tbs"],
+        "indent": "off",
+
         "linebreak-style": [
             "error",
-            "unix"
+            "windows"
         ],
         "quotes": [
             "error",
