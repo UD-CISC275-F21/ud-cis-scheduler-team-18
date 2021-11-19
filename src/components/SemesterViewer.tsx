@@ -1,6 +1,6 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import {Semester} from "../Interfaces/semester";
+import {Semester} from "../interfaces/semester";
 
 
 export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {

@@ -14,8 +14,8 @@ import { SemesterViewer } from "./components/SemesterViewer";
 import { ClassListViewer } from "./components/ClassListViewer";
 import { SemesterSelect } from "./components/SemesterSelect";
 //interfaces
-import { Card } from "./Interfaces/card";
-import { Semester } from "./Interfaces/semester";
+import { Card } from "./interfaces/card";
+import { Semester } from "./interfaces/semester";
 
 
 
