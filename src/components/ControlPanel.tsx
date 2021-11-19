@@ -19,7 +19,31 @@ export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, sem
 		}>Previous Class</Button>
 		<Button onClick= {
 			() => {
-				sem.classA = cardVal.name;
+				if(sem.classA == cardVal.name || sem.classB == cardVal.name || sem.classC == cardVal.name || sem.classD == cardVal.name || sem.classE == cardVal.name || sem.classF == cardVal.name || sem.classG == cardVal.name || sem.classH == cardVal.name || sem.classI == cardVal.name || sem.classJ == cardVal.name){
+					alert("Class already scheduled");
+				}else if(sem.classA == "none"){
+					sem.classA = cardVal.name;
+				}else if(sem.classB == "none"){
+					sem.classB = cardVal.name;
+				}else if(sem.classC == "none"){
+					sem.classC = cardVal.name;
+				}else if(sem.classD == "none"){
+					sem.classD = cardVal.name;
+				}else if(sem.classE == "none"){
+					sem.classE = cardVal.name;
+				}else if(sem.classF == "none"){
+					sem.classF = cardVal.name;
+				}else if(sem.classG == "none"){
+					sem.classG = cardVal.name;
+				}else if(sem.classH == "none"){
+					sem.classH = cardVal.name;
+				}else if(sem.classI == "none"){
+					sem.classI = cardVal.name;
+				}else if(sem.classJ == "none"){
+					sem.classJ = cardVal.name;
+				}else{
+					alert("No empty slots.");
+				}
 			}
 		}>Add Class</Button>
 		<Button onClick={ 

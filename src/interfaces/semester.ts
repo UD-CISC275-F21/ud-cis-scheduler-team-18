@@ -1,4 +1,3 @@
-import {Card} from "./card";
 export interface Semester {
 	id: number
 	name: string
