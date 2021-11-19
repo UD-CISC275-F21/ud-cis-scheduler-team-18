@@ -14,8 +14,8 @@ import { SemesterViewer } from "./components/SemesterViewer";
 import { ClassListViewer } from "./components/ClassListViewer";
 import { SemesterSelect } from "./components/SemesterSelect";
 //interfaces
-import { Card } from "./interfaces/card";
-import { Semester } from "./interfaces/semester";
+import { Card } from "./Interfaces/card";
+import { Semester } from "./Interfaces/semester";
 
 
 
@@ -34,6 +34,9 @@ function App (): JSX.Element {
 	return (
 		<Container className="App">
 			<ClassListViewer></ClassListViewer>
+			<Row>
+				<h1>UD CIS Scheduler Team 18 Andrew McCracken</h1>
+			</Row>
 			<Row>
 				<ControlPanel setCard={setActiveCard} cardVal = {activeCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} sem = {activeSemester} ></ControlPanel>
 				<ClassViewer card ={activeCard}></ClassViewer>
