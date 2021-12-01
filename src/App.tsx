@@ -10,7 +10,7 @@ import semesterList from "./assets/semesterList.json";
 import { CourseViewer } from "./components/CourseViewer";
 import { ControlPanel } from "./components/ControlPanel";
 import { SemesterViewer } from "./components/SemesterViewer";
-import { ClassListViewer } from "./components/ClassListViewer";
+import { CourseListViewer } from "./components/CourseListViewer";
 //interfaces
 import { Course } from "./interfaces/course";
 import { Semester } from "./interfaces/semester";
@@ -27,18 +27,18 @@ function App (): JSX.Element {
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
 	const [semListSize] = useState<number>(semesterList.length);
 	//class use states
-	const [classListSize] = useState<number>(courseList.length);
-	const [activeCard, setActiveCard] = useState<Course>(courseList[0]);
+	const [courseListSize] = useState<number>(courseList.length);
+	const [activeCourse, setActiveCourse] = useState<Course>(courseList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
 	return (
 		<Container className="App">
-			<ClassListViewer></ClassListViewer>
+			<CourseListViewer></CourseListViewer>
 			<Row>
 				<h1>UD CIS Scheduler Team 18 Andrew McCracken</h1>
 			</Row>
 			<Row>
-				<ControlPanel setCard={setActiveCard} cardVal = {activeCard} ID = {activeID} setID = {setActiveID} listSize = {classListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} sem = {activeSemester} ></ControlPanel>
-				<CourseViewer card ={activeCard}></CourseViewer>
+				<ControlPanel setCourse={setActiveCourse} courseVal = {activeCourse} ID = {activeID} setID = {setActiveID} listSize = {courseListSize} setSem = {setActiveSemester} semID = {activeSemesterID} setSemID = {setActiveSemesterID} semListSize ={semListSize} sem = {activeSemester} ></ControlPanel>
+				<CourseViewer course ={activeCourse}></CourseViewer>
 			</Row>
 			<SemesterViewer sem = {activeSemester}></SemesterViewer>
 		</Container>

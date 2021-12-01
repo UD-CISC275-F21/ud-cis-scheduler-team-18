@@ -13,7 +13,7 @@ for(const x in courseList){
 	retval+= ", ";
 }
 
-export function ClassListViewer(): JSX.Element {
+export function CourseListViewer(): JSX.Element {
 	return <Row>
 		<h1>Class List:</h1>
 		<div>{retval}</div>
