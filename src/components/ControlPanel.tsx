@@ -1,18 +1,18 @@
 import React from "react";
 import {Button, Col} from "react-bootstrap";
-import { Card } from "../interfaces/card";
-import CARDS from "../assets/classList.json";
+import { Course } from "../interfaces/course";
+import courseList from "../assets/classList.json";
 import { Semester } from "../interfaces/semester";
 import semList from "../assets/semesterList.json";
 
-export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, semID, setSemID, semListSize, sem}:{setCard: (c: Card)=>void, cardVal: Card, ID: number, setID: (r: number)=>void, listSize: number, setSem: (z: Semester)=>void, semID: number, setSemID: (q: number)=>void, semListSize: number, sem: Semester}): JSX.Element {
+export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, semID, setSemID, semListSize, sem}:{setCard: (c: Course)=>void, cardVal: Course, ID: number, setID: (r: number)=>void, listSize: number, setSem: (z: Semester)=>void, semID: number, setSemID: (q: number)=>void, semListSize: number, sem: Semester}): JSX.Element {
 	let semNameChange = "";
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
 			() => {
 				if(ID != 0){
-					setCard(CARDS[ID-1]);
+					setCard(courseList[ID-1]);
 					setID(ID - 1);
 				}
 			}
@@ -49,7 +49,7 @@ export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, sem
 		<Button onClick={ 
 			() => {
 				if(ID != listSize-1){
-					setCard(CARDS[ID + 1]); 
+					setCard(courseList[ID + 1]); 
 					setID(ID +1);
 				}
 			}

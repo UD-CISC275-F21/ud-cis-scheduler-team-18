@@ -1,14 +1,15 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import CARDS from "../assets/classList.json";
-import {Card} from "../interfaces/card";
+import courseList from "../assets/classList.json";
+import {Course} from "../interfaces/course";
 
 
 let retval = "";
 
-for(const x in CARDS){ 
-	CARDS as Card[];
-	retval += JSON.stringify(CARDS[x].name);
+for(const x in courseList){ 
+	//recheck if below line is necessary, prof said doesn't do anything.
+	courseList as Course[];
+	retval += JSON.stringify(courseList[x].name);
 	retval+= ", ";
 }
 
