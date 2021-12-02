@@ -4,18 +4,22 @@ import courseList from "../assets/classList.json";
 import {Course} from "../interfaces/course";
 
 
-let retval = "";
-
+//let retval = "";
+/*old way of getting course list
 for(const x in courseList){ 
-	//recheck if below line is necessary, prof said doesn't do anything.
-	courseList as Course[];
+	//checked below after Prof suggestions, is not necessary... keeping commented just in case...
+	//courseList as Course[];
 	retval += JSON.stringify(courseList[x].name);
 	retval+= ", ";
 }
-
-export function CourseListViewer(): JSX.Element {
+*/
+export function CourseListViewer({courseDeckVal}: {courseDeckVal: Course[]}): JSX.Element {
+	let retval2 = "";
+	for(const x in courseDeckVal){
+		retval2 += courseDeckVal[x].name + ", ";
+	}
 	return <Row>
 		<h1>Class List:</h1>
-		<div>{retval}</div>
+		<div>{retval2}</div>
 	</Row>;
 }
