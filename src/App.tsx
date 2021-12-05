@@ -13,7 +13,8 @@ import { SemesterViewer } from "./components/SemesterViewer";
 import { CourseListViewer } from "./components/CourseListViewer";
 //interfaces
 import { Course } from "./interfaces/course";
-import { Semester } from "./interfaces/semester";
+//import { Semester } from "./interfaces/semester";
+import { SemesterTest } from "./interfaces/semesterTest";
 
 
 
@@ -22,22 +23,33 @@ import { Semester } from "./interfaces/semester";
 
 function App (): JSX.Element {
 	document.title = "UD CISC Scheduler Team 18";
-	//postMVP use states to order later...
+	//postMVP use states to order later... Decks...
 	const [courseDeck, setCourseDeck] = useState<Course[]>(courseList);
-
+	const [semDeck, setSemDeck] = useState<SemesterTest[]>([{semName: "New Semester", courseLoad: [], ID: 0}]);
 	//semester use states
-	const [activeSemester, setActiveSemester] = useState<Semester>(semesterList[0]);
+	const [activeSemester, setActiveSemester] = useState<SemesterTest>(semDeck[0]);
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
-	const [semListSize] = useState<number>(semesterList.length);
+	//const [semListSize] = useState<number>(semDeck.length);
 	//class use states
-	const [courseListSize] = useState<number>(courseList.length);
+	//const [courseListSize] = useState<number>(courseDeck.length);
 	const [activeCourse, setActiveCourse] = useState<Course>(courseList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
 
 
+	function addSem(newSem: SemesterTest){
+		setSemDeck([...semDeck, newSem]);
+	}
+	/*
+	function removeSem(newSem: SemesterTest){
 
+	}
+	function addCourse(newCourse: Course){
 
+	}
+	function removeCourse( newCourse: Course){
 
+	}
+	*/
 	//Return Value:
 	return (
 		<Container className="App">
@@ -49,13 +61,14 @@ function App (): JSX.Element {
 				<ControlPanel 
 				setCourse={setActiveCourse} 
 				courseVal = {activeCourse} 
-				ID = {activeID} setID = {setActiveID} 
-				listSize = {courseListSize} 
-				setSem = {setActiveSemester} 
-				semID = {activeSemesterID} 
-				setSemID = {setActiveSemesterID} 
-				semListSize ={semListSize} 
-				sem = {activeSemester} ></ControlPanel>
+				ID = {activeID} setID = {setActiveID}
+				courseDeck = {courseDeck}  
+				setSem = {setActiveSemester}
+				sem = {activeSemester}
+				addSem = {addSem}
+				semDeck = {semDeck}
+				semID = {activeSemesterID}
+				setSemID = {setActiveSemesterID} ></ControlPanel>
 				<CourseViewer course ={activeCourse} ></CourseViewer>
 			</Row>
 			<SemesterViewer sem = {activeSemester}></SemesterViewer>

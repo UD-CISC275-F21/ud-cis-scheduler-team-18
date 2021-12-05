@@ -1,9 +1,11 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import {Semester} from "../interfaces/semester";
+//import {Semester} from "../interfaces/semester";
+import { SemesterTest } from "../interfaces/semesterTest";
 
 
-export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
+export function SemesterViewer({sem}: {sem: SemesterTest}): JSX.Element {
+	/*
 	let retval = "";
 	retval += sem.name;
 	retval += ":\n";
@@ -24,9 +26,16 @@ export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
 		retval += sem.classD;
 		retval += "\n";
 	}
-
+	*/
+	
+	let retval2 = "";
+	retval2 += sem.semName + ": ";
+	for(const x in sem.courseLoad){
+		retval2 += x;
+	}
+	
 	return <Row>
 		<h2>Semesters:</h2>
-		<div>{retval}</div>
+		<div>{retval2}</div>
 	</Row>;
 }

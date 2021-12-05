@@ -1,11 +1,10 @@
 import React from "react";
 import {Row} from "react-bootstrap";
-import courseList from "../assets/classList.json";
+//import courseList from "../assets/classList.json";
 import {Course} from "../interfaces/course";
 
-
-//let retval = "";
 /*old way of getting course list
+let retval = "";
 for(const x in courseList){ 
 	//checked below after Prof suggestions, is not necessary... keeping commented just in case...
 	//courseList as Course[];
