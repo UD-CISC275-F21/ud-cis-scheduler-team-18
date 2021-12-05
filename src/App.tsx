@@ -26,10 +26,10 @@ function App (): JSX.Element {
 	//USE STATES:
 	//postMVP use states to order later... Decks...
 	const [courseDeck, setCourseDeck] = useState<Course[]>(courseList);
-	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: [], ID: 0}]);
+	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: []}]);
 	//semester use states
 	const [activeSemester, setActiveSemester] = useState<Semester>(semDeck[0]);
-	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
+	const [activeSemesterIndex, setActiveSemesterIndex] = useState<number>(0);
 	//class use states
 	const [activeCourse, setActiveCourse] = useState<Course>(courseList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
@@ -41,19 +41,25 @@ function App (): JSX.Element {
 	function addSem(newSem: Semester){
 		setSemDeck([...semDeck, newSem]);
 	}
-	//non functional atm, continue work.
+	//Removes current selected semester from the semester deck use state, called in control panel...
 	function removeSem(newSem: Semester){
-		let newSemDeck: Semester[] = [];
-		for(const x in semDeck){
-			if(semDeck[x].ID != newSem.ID){
-				newSemDeck = [...newSemDeck, semDeck[x]];
+		if(semDeck.length == 1){
+			alert("Only 1 Semester, cannot delete.");
+		}else{
+
+		
+			let newSemDeck: Semester[] = [];
+			for(const x in semDeck){
+				if(semDeck[x].semName != newSem.semName){
+					newSemDeck = [...newSemDeck, semDeck[x]];
+				}
 			}
+			setSemDeck(newSemDeck);
+			setActiveSemester(newSemDeck[0]);
+			setActiveSemesterIndex(0);
 		}
-		setSemDeck(newSemDeck);
-		setActiveSemester(semDeck[0]);
-		setActiveSemesterID(activeSemester.ID);
 	}
-	//adds current activeCourse to active semester. called in Control Panel
+	//adds current activeCourse to current active semester and updates semDeck. called in Control Panel
 	function addCourse(newCourse: Course){
 		let contains = false;
 		for( const x in activeSemester.courseLoad){
@@ -62,7 +68,16 @@ function App (): JSX.Element {
 			}
 		}
 		if(contains == false){
-			setActiveSemester({semName: activeSemester.semName, courseLoad: [...activeSemester.courseLoad, newCourse], ID: activeSemester.ID});
+			let newSemDeck: Semester[] = [];
+			for(const x in semDeck){
+				if(semDeck[x] != activeSemester){
+					newSemDeck = [...newSemDeck, semDeck[x]];
+				}else{
+					newSemDeck = [...newSemDeck, {semName: activeSemester.semName, courseLoad: [...activeSemester.courseLoad, newCourse]}];
+				}
+			}
+			setSemDeck(newSemDeck);
+			setActiveSemester(newSemDeck[activeSemesterIndex]);
 		}else{
 			alert("Class already added!");
 		}
@@ -94,8 +109,8 @@ function App (): JSX.Element {
 				addSem = {addSem}
 				removeSem = {removeSem}
 				semDeck = {semDeck}
-				semID = {activeSemesterID}
-				setSemID = {setActiveSemesterID} ></ControlPanel>
+				semIndex = {activeSemesterIndex}
+				setSemIndex = {setActiveSemesterIndex} ></ControlPanel>
 				<CourseViewer course ={activeCourse} ></CourseViewer>
 			</Row>
 			<SemesterViewer sem = {activeSemester}></SemesterViewer>
