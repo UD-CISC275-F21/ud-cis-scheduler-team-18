@@ -6,57 +6,22 @@ import { Course } from "../interfaces/course";
 //import semList from "../assets/semesterList.json";
 import { SemesterTest } from "../interfaces/semesterTest";
 
-export function ControlPanel({setCourse, courseVal, ID, setID, courseDeck, setSem, sem, addSem, semDeck, semID, setSemID}:{setCourse: (c: Course)=>void, courseVal: Course, ID: number, setID: (r: number)=>void, courseDeck: Course[], setSem: (z: SemesterTest)=>void, sem: SemesterTest, addSem: (j: SemesterTest) => void, semDeck: SemesterTest[], semID: number, setSemID: (k: number) => void}): JSX.Element {
-	let semNameChange = "";
+export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, setSem, sem, addSem, removeSem, semDeck, semID, setSemID}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, setSem: (z: SemesterTest)=>void, sem: SemesterTest, addSem: (j: SemesterTest) => void, removeSem: (l: SemesterTest) => void, semDeck: SemesterTest[], semID: number, setSemID: (k: number) => void}): JSX.Element {
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
 			() => {
-				if(ID != 0){
-					setCourse(courseDeck[ID-1]);
-					setID(ID - 1);
+				if(courseID != 0){
+					setCourse(courseDeck[courseID-1]);
+					setID(courseID - 1);
 				}
 			}
 		}>Previous Class</Button>
 		<Button onClick= {
 			() => {
-				/*
-				if(sem.classA == courseVal.name || sem.classB == courseVal.name || sem.classC == courseVal.name || sem.classD == courseVal.name || sem.classE == courseVal.name || sem.classF == courseVal.name || sem.classG == courseVal.name || sem.classH == courseVal.name || sem.classI == courseVal.name || sem.classJ == courseVal.name){
-					alert("Class already scheduled");
-				}else if(sem.classA == "none"){
-					sem.classA = courseVal.name;
-				}else if(sem.classB == "none"){
-					sem.classB = courseVal.name;
-				}else if(sem.classC == "none"){
-					sem.classC = courseVal.name;
-				}else if(sem.classD == "none"){
-					sem.classD = courseVal.name;
-				}else if(sem.classE == "none"){
-					sem.classE = courseVal.name;
-				}else if(sem.classF == "none"){
-					sem.classF = courseVal.name;
-				}else if(sem.classG == "none"){
-					sem.classG = courseVal.name;
-				}else if(sem.classH == "none"){
-					sem.classH = courseVal.name;
-				}else if(sem.classI == "none"){
-					sem.classI = courseVal.name;
-				}else if(sem.classJ == "none"){
-					sem.classJ = courseVal.name;
-				}else{
-					alert("No empty slots.");
-				}
-				*/
+				addCourse(courseVal);
 			}
 		}>Add Class</Button>
-		<Button onClick={ 
-			() => {
-				if(ID != courseDeck.length-1){
-					setCourse(courseDeck[ID + 1]); 
-					setID(ID +1);
-				}
-			}
-		}>Next Class</Button>
 		<Button onClick ={
 			() => {
 				/*
@@ -84,6 +49,15 @@ export function ControlPanel({setCourse, courseVal, ID, setID, courseDeck, setSe
 				*/
 			}
 		}>Remove Class</Button>
+		<Button onClick={ 
+			() => {
+				if(courseID != courseDeck.length-1){
+					setCourse(courseDeck[courseID + 1]); 
+					setID(courseID +1);
+				}
+			}
+		}>Next Class</Button>
+		
 		<br></br>
 		<Button onClick ={
 			() => {
@@ -95,6 +69,12 @@ export function ControlPanel({setCourse, courseVal, ID, setID, courseDeck, setSe
 				
 			}
 		}>Previous Semester</Button>
+		<Button onClick ={
+			() => {
+				const holderVal = "New Semester " + (semID+1).toString();
+				addSem({semName: holderVal, courseLoad: [], ID: (semID +1)});
+			}
+		}>Add Semester </Button>
 		<Button onClick ={
 			() => {
 				/*
@@ -122,21 +102,20 @@ export function ControlPanel({setCourse, courseVal, ID, setID, courseDeck, setSe
 			}
 		}>Next Semester</Button>
 		<br></br>
-		<input onChange={event => semNameChange = event.target.value}></input>
-		<br></br>
 		<Button onClick ={
 			() => {
-				/*
-				sem.name = semNameChange;
-				setSem(semList[semID]);
-				*/
+				let newSemName = "";
+				const holderVal = prompt("Enter Name:");
+				if(holderVal != null){
+					newSemName = holderVal;
+				}
+				setSem({semName: newSemName, courseLoad: sem.courseLoad, ID: sem.ID});
 			}
 		}>Change Semester Name</Button>
 		<Button onClick ={
 			() => {
-				const holderVal = "New Semester " + (semID+1).toString();
-				addSem({semName: holderVal, courseLoad: [], ID: (semID +1)});
+				removeSem(sem);
 			}
-		}>Add Semester </Button>
+		}>Remove Semester</Button>
 	</Col>;
 }

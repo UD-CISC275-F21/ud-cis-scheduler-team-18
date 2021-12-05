@@ -31,7 +31,7 @@ export function SemesterViewer({sem}: {sem: SemesterTest}): JSX.Element {
 	let retval2 = "";
 	retval2 += sem.semName + ": ";
 	for(const x in sem.courseLoad){
-		retval2 += x;
+		retval2 += sem.courseLoad[x].name + ", ";
 	}
 	
 	return <Row>

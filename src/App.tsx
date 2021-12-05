@@ -23,34 +23,61 @@ import { SemesterTest } from "./interfaces/semesterTest";
 
 function App (): JSX.Element {
 	document.title = "UD CISC Scheduler Team 18";
+
+	//USE STATES:
 	//postMVP use states to order later... Decks...
 	const [courseDeck, setCourseDeck] = useState<Course[]>(courseList);
 	const [semDeck, setSemDeck] = useState<SemesterTest[]>([{semName: "New Semester", courseLoad: [], ID: 0}]);
 	//semester use states
 	const [activeSemester, setActiveSemester] = useState<SemesterTest>(semDeck[0]);
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
-	//const [semListSize] = useState<number>(semDeck.length);
 	//class use states
-	//const [courseListSize] = useState<number>(courseDeck.length);
 	const [activeCourse, setActiveCourse] = useState<Course>(courseList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
+	
 
 
+	//FUNCTIONS:
+
+	//Adds a new semester to our semester list use state, called in control panel.
 	function addSem(newSem: SemesterTest){
 		setSemDeck([...semDeck, newSem]);
 	}
-	/*
+	//non functional atm, continue work.
 	function removeSem(newSem: SemesterTest){
-
+		let newSemDeck: SemesterTest[] = [];
+		for(const x in semDeck){
+			if(semDeck[x].ID != newSem.ID){
+				newSemDeck = [...newSemDeck, semDeck[x]];
+			}
+		}
+		setSemDeck(newSemDeck);
+		setActiveSemester(semDeck[0]);
+		setActiveSemesterID(activeSemester.ID);
 	}
+	//adds current activeCourse to active semester. called in Control Panel
 	function addCourse(newCourse: Course){
-
+		let contains = false;
+		for( const x in activeSemester.courseLoad){
+			if (activeSemester.courseLoad[x] == newCourse){
+				contains = true;
+			}
+		}
+		if(contains == false){
+			setActiveSemester({semName: activeSemester.semName, courseLoad: [...activeSemester.courseLoad, newCourse], ID: activeSemester.ID});
+		}else{
+			alert("Class already added!");
+		}
 	}
+	/*
 	function removeCourse( newCourse: Course){
 
 	}
 	*/
-	//Return Value:
+
+
+
+	//RETURN VALUE:
 	return (
 		<Container className="App">
 			<CourseListViewer courseDeckVal ={courseDeck}></CourseListViewer>
@@ -61,11 +88,13 @@ function App (): JSX.Element {
 				<ControlPanel 
 				setCourse={setActiveCourse} 
 				courseVal = {activeCourse} 
-				ID = {activeID} setID = {setActiveID}
-				courseDeck = {courseDeck}  
+				courseID = {activeID} setID = {setActiveID}
+				courseDeck = {courseDeck}
+				addCourse = {addCourse}  
 				setSem = {setActiveSemester}
 				sem = {activeSemester}
 				addSem = {addSem}
+				removeSem = {removeSem}
 				semDeck = {semDeck}
 				semID = {activeSemesterID}
 				setSemID = {setActiveSemesterID} ></ControlPanel>
