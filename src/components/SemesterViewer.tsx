@@ -1,10 +1,10 @@
 import React from "react";
 import {Row} from "react-bootstrap";
 //import {Semester} from "../interfaces/semester";
-import { SemesterTest } from "../interfaces/semesterTest";
+import { Semester } from "../interfaces/semester";
 
 
-export function SemesterViewer({sem}: {sem: SemesterTest}): JSX.Element {
+export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
 	/*
 	let retval = "";
 	retval += sem.name;

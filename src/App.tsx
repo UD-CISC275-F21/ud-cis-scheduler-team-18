@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Container, Row} from "react-bootstrap";
 //assets
 import courseList from "./assets/classList.json";
-import semesterList from "./assets/semesterList.json";
 //components
 import { CourseViewer } from "./components/CourseViewer";
 import { ControlPanel } from "./components/ControlPanel";
@@ -14,7 +13,7 @@ import { CourseListViewer } from "./components/CourseListViewer";
 //interfaces
 import { Course } from "./interfaces/course";
 //import { Semester } from "./interfaces/semester";
-import { SemesterTest } from "./interfaces/semesterTest";
+import { Semester } from "./interfaces/semester";
 
 
 
@@ -27,25 +26,24 @@ function App (): JSX.Element {
 	//USE STATES:
 	//postMVP use states to order later... Decks...
 	const [courseDeck, setCourseDeck] = useState<Course[]>(courseList);
-	const [semDeck, setSemDeck] = useState<SemesterTest[]>([{semName: "New Semester", courseLoad: [], ID: 0}]);
+	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: [], ID: 0}]);
 	//semester use states
-	const [activeSemester, setActiveSemester] = useState<SemesterTest>(semDeck[0]);
+	const [activeSemester, setActiveSemester] = useState<Semester>(semDeck[0]);
 	const [activeSemesterID, setActiveSemesterID] = useState<number>(0);
 	//class use states
 	const [activeCourse, setActiveCourse] = useState<Course>(courseList[0]);
 	const [activeID, setActiveID] = useState<number>(0);
-	
 
 
 	//FUNCTIONS:
 
 	//Adds a new semester to our semester list use state, called in control panel.
-	function addSem(newSem: SemesterTest){
+	function addSem(newSem: Semester){
 		setSemDeck([...semDeck, newSem]);
 	}
 	//non functional atm, continue work.
-	function removeSem(newSem: SemesterTest){
-		let newSemDeck: SemesterTest[] = [];
+	function removeSem(newSem: Semester){
+		let newSemDeck: Semester[] = [];
 		for(const x in semDeck){
 			if(semDeck[x].ID != newSem.ID){
 				newSemDeck = [...newSemDeck, semDeck[x]];

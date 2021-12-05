@@ -4,9 +4,9 @@ import { Course } from "../interfaces/course";
 //import courseList from "../assets/classList.json";
 //import { Semester } from "../interfaces/semester";
 //import semList from "../assets/semesterList.json";
-import { SemesterTest } from "../interfaces/semesterTest";
+import { Semester } from "../interfaces/semester";
 
-export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, setSem, sem, addSem, removeSem, semDeck, semID, setSemID}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, setSem: (z: SemesterTest)=>void, sem: SemesterTest, addSem: (j: SemesterTest) => void, removeSem: (l: SemesterTest) => void, semDeck: SemesterTest[], semID: number, setSemID: (k: number) => void}): JSX.Element {
+export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, setSem, sem, addSem, removeSem, semDeck, semID, setSemID}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, setSem: (z: Semester)=>void, sem: Semester, addSem: (j: Semester) => void, removeSem: (l: Semester) => void, semDeck: Semester[], semID: number, setSemID: (k: number) => void}): JSX.Element {
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
@@ -77,18 +77,7 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 		}>Add Semester </Button>
 		<Button onClick ={
 			() => {
-				/*
-				sem.classA = "none";
-				sem.classB = "none";
-				sem.classC = "none";
-				sem.classD = "none";
-				sem.classE = "none";
-				sem.classF = "none";
-				sem.classG = "none";
-				sem.classH = "none";
-				sem.classI = "none";
-				sem.classJ = "none";
-				*/
+				setSem({semName: sem.semName, courseLoad: [], ID: sem.ID});
 			}
 		}>Clear Semester</Button>
 		<Button onClick ={
