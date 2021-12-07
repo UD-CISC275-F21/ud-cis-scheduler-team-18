@@ -82,6 +82,7 @@ function App (): JSX.Element {
 			alert("Class already added!");
 		}
 	}
+	//clears semester of all classes and updates the relating use states... called in control panel
 	function clearSemester(){
 		let newSemDeck: Semester[] = [];
 		for(const x in semDeck){
@@ -94,14 +95,13 @@ function App (): JSX.Element {
 		setSemDeck(newSemDeck);
 		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
-	
+	//removes the current active course from the current active semester and updates the use states accordingly... called in control panel
 	function removeCourse( newCourse: Course){
 		let newSemDeck: Semester[] = [];
 		for(const x in semDeck){
 			if(semDeck[x] != activeSemester){
 				newSemDeck = [...newSemDeck, semDeck[x]];
 			}else{
-				//needs changing
 				let newCourseLoad: any[] = [];
 				for(const y in semDeck[x].courseLoad){
 					if(semDeck[x].courseLoad[y] != newCourse){
@@ -114,7 +114,24 @@ function App (): JSX.Element {
 		setSemDeck(newSemDeck);
 		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
-	
+	//function renames the current active semester and updates the corresponding usestates... called in control panel
+	function renameSemester(){
+		let newSemDeck: Semester[] = [];
+		let newSemName = "";
+				const holderVal = prompt("Enter Name:");
+				if(holderVal != null){
+					newSemName = holderVal;
+				}
+				for(const x in semDeck){
+					if(semDeck[x] != activeSemester){
+						newSemDeck = [...newSemDeck, semDeck[x]];
+					}else{
+						newSemDeck = [...newSemDeck, {semName: newSemName, courseLoad: semDeck[x].courseLoad}];
+					}
+				}
+				setSemDeck(newSemDeck);
+				setActiveSemester(newSemDeck[activeSemesterIndex]);
+	}
 
 
 
@@ -138,6 +155,7 @@ function App (): JSX.Element {
 				addSem = {addSem}
 				removeSem = {removeSem}
 				clearSem = {clearSemester}
+				renameSem = {renameSemester}
 				semDeck = {semDeck}
 				semIndex = {activeSemesterIndex}
 				setSemIndex = {setActiveSemesterIndex} ></ControlPanel>
