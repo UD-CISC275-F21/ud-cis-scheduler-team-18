@@ -82,11 +82,39 @@ function App (): JSX.Element {
 			alert("Class already added!");
 		}
 	}
-	/*
-	function removeCourse( newCourse: Course){
-
+	function clearSemester(){
+		let newSemDeck: Semester[] = [];
+		for(const x in semDeck){
+			if(semDeck[x] != activeSemester){
+				newSemDeck = [...newSemDeck, semDeck[x]];
+			}else{
+				newSemDeck = [...newSemDeck, {semName: activeSemester.semName, courseLoad: []}];
+			}
+		}
+		setSemDeck(newSemDeck);
+		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
-	*/
+	
+	function removeCourse( newCourse: Course){
+		let newSemDeck: Semester[] = [];
+		for(const x in semDeck){
+			if(semDeck[x] != activeSemester){
+				newSemDeck = [...newSemDeck, semDeck[x]];
+			}else{
+				//needs changing
+				let newCourseLoad: any[] = [];
+				for(const y in semDeck[x].courseLoad){
+					if(semDeck[x].courseLoad[y] != newCourse){
+						newCourseLoad = [...newCourseLoad, semDeck[x].courseLoad[y]];
+					}
+				}
+				newSemDeck = [...newSemDeck, {semName: semDeck[x].semName, courseLoad: newCourseLoad}];
+			}
+		}
+		setSemDeck(newSemDeck);
+		setActiveSemester(newSemDeck[activeSemesterIndex]);
+	}
+	
 
 
 
@@ -103,11 +131,13 @@ function App (): JSX.Element {
 				courseVal = {activeCourse} 
 				courseID = {activeID} setID = {setActiveID}
 				courseDeck = {courseDeck}
-				addCourse = {addCourse}  
+				addCourse = {addCourse}
+				removeCourse = {removeCourse}  
 				setSem = {setActiveSemester}
 				sem = {activeSemester}
 				addSem = {addSem}
 				removeSem = {removeSem}
+				clearSem = {clearSemester}
 				semDeck = {semDeck}
 				semIndex = {activeSemesterIndex}
 				setSemIndex = {setActiveSemesterIndex} ></ControlPanel>
