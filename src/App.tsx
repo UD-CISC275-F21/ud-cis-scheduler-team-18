@@ -24,7 +24,7 @@ function App (): JSX.Element {
 	document.title = "UD CISC Scheduler Team 18";
 
 	//USE STATES:
-	//postMVP use states to order later... Decks...
+	//List use states which are hold our list of semesters and course list
 	const [courseDeck] = useState<Course[]>(courseList);
 	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: []}]);
 	//semester use states

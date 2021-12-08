@@ -8,5 +8,6 @@ export function CourseViewer({course}: {course: Course}): JSX.Element {
 		<div>Class: {course.name}</div>
 		<div>Professor: {course.prof}</div>
 		<div>Prereq: {course.prereq}</div>
+		<div>Credits: {course.credits}</div>
 	</Col>;
 }
