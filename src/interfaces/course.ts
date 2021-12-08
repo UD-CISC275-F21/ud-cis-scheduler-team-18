@@ -1,4 +1,4 @@
-export interface Card {
+export interface Course {
 	id: number
 	name: string
 	prereq: string

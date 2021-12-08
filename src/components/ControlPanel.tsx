@@ -1,124 +1,82 @@
 import React from "react";
 import {Button, Col} from "react-bootstrap";
-import { Card } from "../interfaces/card";
-import CARDS from "../assets/classList.json";
+import { Course } from "../interfaces/course";
 import { Semester } from "../interfaces/semester";
-import semList from "../assets/semesterList.json";
 
-export function ControlPanel({setCard, cardVal, ID, setID, listSize, setSem, semID, setSemID, semListSize, sem}:{setCard: (c: Card)=>void, cardVal: Card, ID: number, setID: (r: number)=>void, listSize: number, setSem: (z: Semester)=>void, semID: number, setSemID: (q: number)=>void, semListSize: number, sem: Semester}): JSX.Element {
-	let semNameChange = "";
+export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, removeCourse, setSem, sem, addSem, removeSem, clearSem, renameSem, semDeck, semIndex, setSemIndex}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, removeCourse: (o: Course)=>void, setSem: (z: Semester)=>void, sem: Semester, addSem: (j: Semester) => void, removeSem: (l: Semester) => void, clearSem: (n: void) => void, renameSem: (p: void) => void, semDeck: Semester[], semIndex: number, setSemIndex: (k: number) => void}): JSX.Element {
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
 			() => {
-				if(ID != 0){
-					setCard(CARDS[ID-1]);
-					setID(ID - 1);
+				if(courseID != 0){
+					setCourse(courseDeck[courseID-1]);
+					setID(courseID - 1);
 				}
 			}
 		}>Previous Class</Button>
 		<Button onClick= {
 			() => {
-				if(sem.classA == cardVal.name || sem.classB == cardVal.name || sem.classC == cardVal.name || sem.classD == cardVal.name || sem.classE == cardVal.name || sem.classF == cardVal.name || sem.classG == cardVal.name || sem.classH == cardVal.name || sem.classI == cardVal.name || sem.classJ == cardVal.name){
-					alert("Class already scheduled");
-				}else if(sem.classA == "none"){
-					sem.classA = cardVal.name;
-				}else if(sem.classB == "none"){
-					sem.classB = cardVal.name;
-				}else if(sem.classC == "none"){
-					sem.classC = cardVal.name;
-				}else if(sem.classD == "none"){
-					sem.classD = cardVal.name;
-				}else if(sem.classE == "none"){
-					sem.classE = cardVal.name;
-				}else if(sem.classF == "none"){
-					sem.classF = cardVal.name;
-				}else if(sem.classG == "none"){
-					sem.classG = cardVal.name;
-				}else if(sem.classH == "none"){
-					sem.classH = cardVal.name;
-				}else if(sem.classI == "none"){
-					sem.classI = cardVal.name;
-				}else if(sem.classJ == "none"){
-					sem.classJ = cardVal.name;
-				}else{
-					alert("No empty slots.");
-				}
+				addCourse(courseVal);
 			}
 		}>Add Class</Button>
+		<Button onClick ={
+			() => {
+				removeCourse(courseVal);
+			}
+		}>Remove Class</Button>
 		<Button onClick={ 
 			() => {
-				if(ID != listSize-1){
-					setCard(CARDS[ID + 1]); 
-					setID(ID +1);
+				if(courseID != courseDeck.length-1){
+					setCourse(courseDeck[courseID + 1]); 
+					setID(courseID +1);
 				}
 			}
 		}>Next Class</Button>
-		<Button onClick ={
-			() => {
-				if(sem.classA == cardVal.name){
-					sem.classA = "none";
-				}else if(sem.classB == cardVal.name){
-					sem.classB = "none";
-				}else if(sem.classC == cardVal.name){
-					sem.classC = "none";
-				}else if(sem.classD == cardVal.name){
-					sem.classD = "none";
-				}else if(sem.classE == cardVal.name){
-					sem.classE = "none";
-				}else if(sem.classF == cardVal.name){
-					sem.classF = "none";
-				}else if(sem.classG == cardVal.name){
-					sem.classG = "none";
-				}else if(sem.classH == cardVal.name){
-					sem.classH = "none";
-				}else if(sem.classI == cardVal.name){
-					sem.classI = "none";
-				}else if(sem.classJ == cardVal.name){
-					sem.classJ = "none";
-				}
-			}
-		}>Remove Class</Button>
+		
 		<br></br>
 		<Button onClick ={
 			() => {
-				if(semID != 0){
-					setSem(semList[semID-1]);
-					setSemID(semID -1);
+				
+				if(semIndex != 0){
+					setSem(semDeck[semIndex-1]);
+					setSemIndex(semIndex -1);
 				}
+				
 			}
 		}>Previous Semester</Button>
 		<Button onClick ={
 			() => {
-				sem.classA = "none";
-				sem.classB = "none";
-				sem.classC = "none";
-				sem.classD = "none";
-				sem.classE = "none";
-				sem.classF = "none";
-				sem.classG = "none";
-				sem.classH = "none";
-				sem.classI = "none";
-				sem.classJ = "none";
+				let newSemName = "";
+				const holderVal = prompt("Enter Name:");
+				if(holderVal != null){
+					newSemName = holderVal;
+				}
+				addSem({semName: newSemName, courseLoad: []});
+			}
+		}>Add Semester </Button>
+		<Button onClick ={
+			() => {
+				clearSem();
 			}
 		}>Clear Semester</Button>
 		<Button onClick ={
 			() => {
-				if(semID != semListSize -1){
-					setSem(semList[semID+1]);
-					setSemID(semID + 1);
+				if(semIndex != semDeck.length -1){
+					setSem(semDeck[semIndex+1]);
+					setSemIndex(semIndex + 1);
 				}
 			}
 		}>Next Semester</Button>
 		<br></br>
-		<input onChange={event => semNameChange = event.target.value}></input>
-		<br></br>
 		<Button onClick ={
 			() => {
-				sem.name = semNameChange;
-				setSem(semList[semID]);
+				renameSem();
 			}
-		}>Change Semester Name</Button>
-		
+		}>Rename Semester</Button>
+		<Button onClick ={
+			() => {
+				removeSem(sem);
+			}
+		}>Remove Semester</Button>
 	</Col>;
 }
