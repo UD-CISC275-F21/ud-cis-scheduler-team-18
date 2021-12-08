@@ -95,6 +95,7 @@ function App (): JSX.Element {
 		setSemDeck(newSemDeck);
 		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
+	//deletes and clears all semesters updating the corresponding use states... called in control panel
 	function resetSems(){
 		const newSemDeck: Semester[] = [{semName: "My New Semester", courseLoad: []}];
 		setSemDeck(newSemDeck);
