@@ -25,7 +25,7 @@ function App (): JSX.Element {
 
 	//USE STATES:
 	//postMVP use states to order later... Decks...
-	const [courseDeck, setCourseDeck] = useState<Course[]>(courseList);
+	const [courseDeck] = useState<Course[]>(courseList);
 	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: []}]);
 	//semester use states
 	const [activeSemester, setActiveSemester] = useState<Semester>(semDeck[0]);
@@ -102,7 +102,7 @@ function App (): JSX.Element {
 			if(semDeck[x] != activeSemester){
 				newSemDeck = [...newSemDeck, semDeck[x]];
 			}else{
-				let newCourseLoad: any[] = [];
+				let newCourseLoad: Course[] = [];
 				for(const y in semDeck[x].courseLoad){
 					if(semDeck[x].courseLoad[y] != newCourse){
 						newCourseLoad = [...newCourseLoad, semDeck[x].courseLoad[y]];
