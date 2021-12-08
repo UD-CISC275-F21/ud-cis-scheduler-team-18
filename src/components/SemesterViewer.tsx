@@ -3,6 +3,7 @@ import {Row} from "react-bootstrap";
 import { Course } from "../interfaces/course";
 //import {Semester} from "../interfaces/semester";
 import { Semester } from "../interfaces/semester";
+import { ListGroup } from "react-bootstrap";
 
 
 export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
@@ -29,19 +30,25 @@ export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
 	for(const x in sem.courseLoad){
 		credits += sem.courseLoad[x].credits;
 	}
-
+	/*
 	//setup for courses ordered list:
 	let courses: Course[] = [];
 	courses = sem.courseLoad;
 	const listCourses = courses.map((val)=>
 		<li key ={val.id}>{val.name}</li>
 	);
+*/
 
+	let courses: Course[] = [];
+	courses = sem.courseLoad;
+	const listCourses = courses.map((val)=>
+		<ListGroup.Item variant = "dark" key ={val.id}>{val.name}</ListGroup.Item>
+	);
 
 	return <Row>
 		<h2>Semesters:</h2>
 		<h5>Total Credits: {credits}</h5>
 		<h6>{sem.semName}</h6>
-		<ol>{listCourses}</ol>
+		<ListGroup>{listCourses}</ListGroup>
 	</Row>;
 }
