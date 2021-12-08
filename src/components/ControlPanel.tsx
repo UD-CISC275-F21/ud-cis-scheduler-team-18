@@ -3,7 +3,7 @@ import {Button, Col} from "react-bootstrap";
 import { Course } from "../interfaces/course";
 import { Semester } from "../interfaces/semester";
 
-export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, removeCourse, setSem, sem, addSem, removeSem, clearSem, renameSem, semDeck, semIndex, setSemIndex}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, removeCourse: (o: Course)=>void, setSem: (z: Semester)=>void, sem: Semester, addSem: (j: Semester) => void, removeSem: (l: Semester) => void, clearSem: (n: void) => void, renameSem: (p: void) => void, semDeck: Semester[], semIndex: number, setSemIndex: (k: number) => void}): JSX.Element {
+export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, removeCourse, setSem, sem, addSem, removeSem, resetSems, clearSem, renameSem, semDeck, semIndex, setSemIndex}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, removeCourse: (o: Course)=>void, setSem: (z: Semester)=>void, sem: Semester, addSem: (j: Semester) => void, removeSem: (l: Semester) => void, resetSems:(q: void) => void, clearSem: (n: void) => void, renameSem: (p: void) => void, semDeck: Semester[], semIndex: number, setSemIndex: (k: number) => void}): JSX.Element {
 	return <Col>
 		<h2>ControlPanel</h2>
 		<Button onClick={
@@ -78,5 +78,10 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				removeSem(sem);
 			}
 		}>Remove Semester</Button>
+		<Button onClick ={
+			() =>{
+				resetSems();
+			}
+		}>Reset Semesters</Button>
 	</Col>;
 }

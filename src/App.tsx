@@ -95,6 +95,12 @@ function App (): JSX.Element {
 		setSemDeck(newSemDeck);
 		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
+	function resetSems(){
+		const newSemDeck: Semester[] = [{semName: "My New Semester", courseLoad: []}];
+		setSemDeck(newSemDeck);
+		setActiveSemesterIndex(0);
+		setActiveSemester(newSemDeck[0]);
+	}
 	//removes the current active course from the current active semester and updates the use states accordingly... called in control panel
 	function removeCourse( newCourse: Course){
 		let newSemDeck: Semester[] = [];
@@ -155,6 +161,7 @@ function App (): JSX.Element {
 				addSem = {addSem}
 				removeSem = {removeSem}
 				clearSem = {clearSemester}
+				resetSems = {resetSems}
 				renameSem = {renameSemester}
 				semDeck = {semDeck}
 				semIndex = {activeSemesterIndex}
