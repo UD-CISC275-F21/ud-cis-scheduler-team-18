@@ -22,6 +22,12 @@ export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
 	const listCourses = courses.map((string) => 
 		<li key={string.length}>{string}</li>
 	);
+	//setup for courses ordered list:
+	let courses: Course[] = [];
+	courses = sem.courseLoad;
+	const listCourses = courses.map((val)=>
+		<li key ={val.id}>{val.name}</li>
+	);
 	*/
 
 
@@ -30,15 +36,8 @@ export function SemesterViewer({sem}: {sem: Semester}): JSX.Element {
 	for(const x in sem.courseLoad){
 		credits += sem.courseLoad[x].credits;
 	}
-	/*
-	//setup for courses ordered list:
-	let courses: Course[] = [];
-	courses = sem.courseLoad;
-	const listCourses = courses.map((val)=>
-		<li key ={val.id}>{val.name}</li>
-	);
-*/
-
+	
+	//setup for course list display:
 	let courses: Course[] = [];
 	courses = sem.courseLoad;
 	const listCourses = courses.map((val)=>
