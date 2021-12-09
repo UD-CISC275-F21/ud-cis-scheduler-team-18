@@ -1,0 +1,5 @@
+- add use states for the imported class list from the json. (class list imported from json will not be able to be updated, rather use deck/setdeck like TA trainer)
+- add use states for semlist and schedule which is a list of sems. 
+- Rework existing code to accomodate changes above
+- change name of card to course in all card functions/files/mentions...
+- Only after reworks, add new functionality for project.

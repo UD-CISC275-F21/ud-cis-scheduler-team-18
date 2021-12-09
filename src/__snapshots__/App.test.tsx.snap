@@ -1,0 +1,255 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing 1`] = `
+<div
+  className="App container"
+>
+  <div
+    className="row"
+  >
+    <h1>
+      UD CIS Scheduler Team 18 Andrew McCracken
+    </h1>
+    <div
+      className="row"
+    >
+      <h1>
+        Course List:
+      </h1>
+      <div
+        className="justify-content-center list-group list-group-horizontal"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc275
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc320
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc372
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cpeg470
+        </div>
+      </div>
+      <h2>
+        Unfulfilled Requirements:
+      </h2>
+      <div
+        className="justify-content-center list-group list-group-horizontal"
+        onKeyDown={[Function]}
+      >
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc275
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc320
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cisc372
+        </div>
+        <div
+          className="list-group-item list-group-item-dark"
+          data-rr-ui-event-key={null}
+          onClick={[Function]}
+        >
+          cpeg470
+        </div>
+      </div>
+      <h2>
+        Fulfilled Requirements:
+      </h2>
+      <div
+        className="justify-content-center list-group list-group-horizontal"
+        onKeyDown={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <div
+      className="col"
+    >
+      <h2>
+        Control Panel
+      </h2>
+      <div
+        className="btn-group"
+        role="group"
+      >
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Previous Class
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Add Class
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Remove Class
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Next Class
+        </button>
+      </div>
+      <br />
+      <div
+        className="btn-group"
+        role="group"
+      >
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Previous Semester
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Add Semester 
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Clear Semester
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Next Semester
+        </button>
+      </div>
+      <br />
+      <div
+        className="btn-group"
+        role="group"
+      >
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Rename Semester
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Remove Semester
+        </button>
+        <button
+          className="btn btn-secondary btn-sm"
+          disabled={false}
+          onClick={[Function]}
+          type="button"
+        >
+          Reset Semesters
+        </button>
+      </div>
+    </div>
+    <div
+      className="col"
+    >
+      <h2>
+        Class Select
+      </h2>
+      <div>
+        Class: 
+        cisc275
+      </div>
+      <div>
+        Professor: 
+        Dr. Bart
+      </div>
+      <div>
+        Prereq: 
+        none
+      </div>
+      <div>
+        Credits: 
+        3
+      </div>
+    </div>
+  </div>
+  <div
+    className="row"
+  >
+    <h2>
+      Semesters:
+    </h2>
+    <h5>
+      Total Credits: 
+      0
+    </h5>
+    <h6>
+      New Semester
+    </h6>
+    <div
+      className="list-group"
+      onKeyDown={[Function]}
+    />
+  </div>
+</div>
+`;
