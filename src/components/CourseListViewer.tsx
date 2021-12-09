@@ -1,5 +1,5 @@
 import React from "react";
-import {Row, ListGroup, ListGroupItem} from "react-bootstrap";
+import {Row, ListGroup} from "react-bootstrap";
 import { Semester } from "../interfaces/semester";
 import {Course} from "../interfaces/course";
 
@@ -13,10 +13,6 @@ for(const x in courseList){
 }
 */
 export function CourseListViewer({courseDeckVal, semDeck}: {courseDeckVal: Course[], semDeck: Semester[]}): JSX.Element {
-	let retval = "";
-	for(const x in courseDeckVal){
-		retval += courseDeckVal[x].name + ", ";
-	}
 
 	//setup for courses taken and courses needed lists
 	let coursesNeeded: Course[] = [];
