@@ -1,12 +1,15 @@
 import React from "react";
-import {Button, Col} from "react-bootstrap";
+import {Button, Col, ButtonGroup} from "react-bootstrap";
 import { Course } from "../interfaces/course";
 import { Semester } from "../interfaces/semester";
 
 export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck, addCourse, removeCourse, setSem, sem, addSem, removeSem, resetSems, clearSem, renameSem, semDeck, semIndex, setSemIndex}:{setCourse: (c: Course)=>void, courseVal: Course, courseID: number, setID: (r: number)=>void, courseDeck: Course[], addCourse: (m: Course)=> void, removeCourse: (o: Course)=>void, setSem: (z: Semester)=>void, sem: Semester, addSem: (j: Semester) => void, removeSem: (l: Semester) => void, resetSems:(q: void) => void, clearSem: (n: void) => void, renameSem: (p: void) => void, semDeck: Semester[], semIndex: number, setSemIndex: (k: number) => void}): JSX.Element {
 	return <Col>
-		<h2>ControlPanel</h2>
-		<Button onClick={
+		<h2>Control Panel</h2>
+
+		
+		<ButtonGroup>
+		<Button variant="outline-secondary" size="sm" onClick={
 			() => {
 				if(courseID != 0){
 					setCourse(courseDeck[courseID-1]);
@@ -14,17 +17,17 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				}
 			}
 		}>Previous Class</Button>
-		<Button onClick= {
+		<Button variant="outline-secondary" size="sm" onClick= {
 			() => {
 				addCourse(courseVal);
 			}
 		}>Add Class</Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				removeCourse(courseVal);
 			}
 		}>Remove Class</Button>
-		<Button onClick={ 
+		<Button variant="outline-secondary" size="sm" onClick={ 
 			() => {
 				if(courseID != courseDeck.length-1){
 					setCourse(courseDeck[courseID + 1]); 
@@ -32,9 +35,14 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				}
 			}
 		}>Next Class</Button>
-		
+		</ButtonGroup>
+
+
 		<br></br>
-		<Button onClick ={
+
+
+		<ButtonGroup>
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				
 				if(semIndex != 0){
@@ -44,7 +52,7 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				
 			}
 		}>Previous Semester</Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				let newSemName = "";
 				const holderVal = prompt("Enter Name:");
@@ -54,12 +62,12 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				addSem({semName: newSemName, courseLoad: []});
 			}
 		}>Add Semester </Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				clearSem();
 			}
 		}>Clear Semester</Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				if(semIndex != semDeck.length -1){
 					setSem(semDeck[semIndex+1]);
@@ -67,21 +75,27 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				}
 			}
 		}>Next Semester</Button>
+		</ButtonGroup>
+
+
 		<br></br>
-		<Button onClick ={
+
+		<ButtonGroup>
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				renameSem();
 			}
 		}>Rename Semester</Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() => {
 				removeSem(sem);
 			}
 		}>Remove Semester</Button>
-		<Button onClick ={
+		<Button variant="outline-secondary" size="sm" onClick ={
 			() =>{
 				resetSems();
 			}
 		}>Reset Semesters</Button>
+		</ButtonGroup>
 	</Col>;
 }

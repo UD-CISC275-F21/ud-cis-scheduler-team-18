@@ -3,24 +3,28 @@
 		"id": 0,
 		"name": "cisc275",
 		"prereq": "none",
-		"prof": "Dr. Bart"
+		"prof": "Dr. Bart",
+		"credits": 3
 	},
 	{
 		"id": 1,
 		"name": "cisc320",
 		"prereq": "none",
-		"prof": "Rui Zhang"
+		"prof": "Rui Zhang",
+		"credits": 3
 	},
 	{
 		"id": 2,
 		"name": "cisc372",
 		"prereq": "none",
-		"prof": "Dr. Sunitha"
+		"prof": "Dr. Sunitha",
+		"credits": 3
 	},
 	{
 		"id": 3,
 		"name": "cpeg470",
 		"prereq": "none",
-		"prof": "Dr. Andrew Novocin"
+		"prof": "Dr. Andrew Novocin",
+		"credits": 3
 	}
 ]

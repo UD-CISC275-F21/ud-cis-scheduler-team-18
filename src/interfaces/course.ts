@@ -3,4 +3,5 @@ export interface Course {
 	name: string
 	prereq: string
 	prof: string
+	credits: number
 }

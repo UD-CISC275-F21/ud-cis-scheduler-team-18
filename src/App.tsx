@@ -24,7 +24,7 @@ function App (): JSX.Element {
 	document.title = "UD CISC Scheduler Team 18";
 
 	//USE STATES:
-	//postMVP use states to order later... Decks...
+	//List use states which are hold our list of semesters and course list
 	const [courseDeck] = useState<Course[]>(courseList);
 	const [semDeck, setSemDeck] = useState<Semester[]>([{semName: "New Semester", courseLoad: []}]);
 	//semester use states
@@ -95,6 +95,7 @@ function App (): JSX.Element {
 		setSemDeck(newSemDeck);
 		setActiveSemester(newSemDeck[activeSemesterIndex]);
 	}
+	//deletes and clears all semesters updating the corresponding use states... called in control panel
 	function resetSems(){
 		const newSemDeck: Semester[] = [{semName: "My New Semester", courseLoad: []}];
 		setSemDeck(newSemDeck);
@@ -144,9 +145,9 @@ function App (): JSX.Element {
 	//RETURN VALUE:
 	return (
 		<Container className="App">
-			<CourseListViewer courseDeckVal ={courseDeck}></CourseListViewer>
 			<Row>
 				<h1>UD CIS Scheduler Team 18 Andrew McCracken</h1>
+				<CourseListViewer courseDeckVal ={courseDeck} semDeck = {semDeck}></CourseListViewer>
 			</Row>
 			<Row>
 				<ControlPanel 
