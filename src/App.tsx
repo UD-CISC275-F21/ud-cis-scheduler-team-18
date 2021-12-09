@@ -145,9 +145,9 @@ function App (): JSX.Element {
 	//RETURN VALUE:
 	return (
 		<Container className="App">
-			<CourseListViewer courseDeckVal ={courseDeck}></CourseListViewer>
 			<Row>
 				<h1>UD CIS Scheduler Team 18 Andrew McCracken</h1>
+				<CourseListViewer courseDeckVal ={courseDeck} semDeck = {semDeck}></CourseListViewer>
 			</Row>
 			<Row>
 				<ControlPanel 
