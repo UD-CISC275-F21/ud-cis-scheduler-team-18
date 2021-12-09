@@ -52,7 +52,7 @@ export function CourseListViewer({courseDeckVal, semDeck}: {courseDeckVal: Cours
 	);
 
 	return <Row>
-		<h1>Class List:</h1>
+		<h1>Course List:</h1>
 		<ListGroup horizontal className= "justify-content-center">{listCourses}</ListGroup>
 		<h2>Unfulfilled Requirements:</h2>
 		<ListGroup horizontal className= "justify-content-center">{unfulfilledListCourses}</ListGroup>
