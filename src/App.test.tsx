@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
-import renderer from 'react-test-renderer';
+import renderer from "react-test-renderer";
 //basic screen text rendering tests:
 test("renders UD CIS Scheduler text", () => {
     render(<App />);
@@ -44,7 +44,7 @@ test("renders Semester Viewer", () => {
 
 test("renders all 11 buttons for the control panel", () =>{
 	render(<App />);
-	const linkElement = document.querySelectorAll('Button');
+	const linkElement = document.querySelectorAll("Button");
 	expect(linkElement).toHaveLength(11);
 	expect(linkElement[0]).toHaveTextContent("Previous Class");
 	expect(linkElement[1]).toHaveTextContent("Add Class");
@@ -61,7 +61,7 @@ test("renders all 11 buttons for the control panel", () =>{
 
 test("renders 3 listGroups that are horizontal", () => {
 	render(<App />);
-	const linkElement = document.querySelectorAll('div');
+	const linkElement = document.querySelectorAll("div");
 	let listGroups = 0;
 	for(const x in linkElement){
 		if(linkElement[x].className == "justify-content-center list-group list-group-horizontal"){
@@ -73,7 +73,7 @@ test("renders 3 listGroups that are horizontal", () => {
 
 test("renders 1 normal listGroup", () => {
 	render(<App />);
-	const linkElement = document.querySelectorAll('div');
+	const linkElement = document.querySelectorAll("div");
 	let listGroups = 0;
 	for(const x in linkElement){
 		if(linkElement[x].className == "list-group"){
