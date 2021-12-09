@@ -9,7 +9,7 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 
 		
 		<ButtonGroup>
-		<Button variant="outline-secondary" size="sm" onClick={
+		<Button variant="secondary" size="sm" onClick={
 			() => {
 				if(courseID != 0){
 					setCourse(courseDeck[courseID-1]);
@@ -17,17 +17,17 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				}
 			}
 		}>Previous Class</Button>
-		<Button variant="outline-secondary" size="sm" onClick= {
+		<Button variant="secondary" size="sm" onClick= {
 			() => {
 				addCourse(courseVal);
 			}
 		}>Add Class</Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				removeCourse(courseVal);
 			}
 		}>Remove Class</Button>
-		<Button variant="outline-secondary" size="sm" onClick={ 
+		<Button variant="secondary" size="sm" onClick={ 
 			() => {
 				if(courseID != courseDeck.length-1){
 					setCourse(courseDeck[courseID + 1]); 
@@ -42,7 +42,7 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 
 
 		<ButtonGroup>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				
 				if(semIndex != 0){
@@ -52,7 +52,7 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				
 			}
 		}>Previous Semester</Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				let newSemName = "";
 				const holderVal = prompt("Enter Name:");
@@ -62,12 +62,12 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 				addSem({semName: newSemName, courseLoad: []});
 			}
 		}>Add Semester </Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				clearSem();
 			}
 		}>Clear Semester</Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				if(semIndex != semDeck.length -1){
 					setSem(semDeck[semIndex+1]);
@@ -81,17 +81,17 @@ export function ControlPanel({setCourse, courseVal, courseID, setID, courseDeck,
 		<br></br>
 
 		<ButtonGroup>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				renameSem();
 			}
 		}>Rename Semester</Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() => {
 				removeSem(sem);
 			}
 		}>Remove Semester</Button>
-		<Button variant="outline-secondary" size="sm" onClick ={
+		<Button variant="secondary" size="sm" onClick ={
 			() =>{
 				resetSems();
 			}
